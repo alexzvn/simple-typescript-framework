@@ -12,8 +12,8 @@ const middlewares: MiddlewareMap = {
   // '/': [ExampleMiddleware, ExampleMiddleware],
 }
 
-export default defineProvider(({ express, logger }) => {
-  const output = []
+export default defineProvider(({ express, logger, hook }) => {
+  const output = [] as string[]
 
   for (const [path, middleware] of Object.entries(middlewares)) {
     Array.isArray(middleware)
@@ -27,5 +27,9 @@ export default defineProvider(({ express, logger }) => {
     express.use(path, ...handlers)
   }
 
-  logger.info('MiddlewareProvider initialized')
+  hook('after', () => {
+    output.forEach(line => logger.debug(line))
+    logger.info('MiddlewareProvider initialized')
+    output.length = 0
+  })
 })

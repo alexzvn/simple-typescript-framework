@@ -3,7 +3,6 @@ import cors from 'cors'
 import { defineProvider } from '@/utils/ProviderHelper'
 import { envOrFail } from '@/utils/Env'
 
-
 const target = envOrFail('APP_TARGET')
 
 export default defineProvider((app) => {

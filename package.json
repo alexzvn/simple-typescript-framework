@@ -2,7 +2,13 @@
   "name": "simple-typescript-framework",
   "version": "1.0.0",
   "description": "Blank typescript simple framework for building web applications",
-  "keywords": ["typescript", "framework", "web", "express", "nodejs"],
+  "keywords": [
+    "typescript",
+    "framework",
+    "web",
+    "express",
+    "nodejs"
+  ],
   "author": "",
   "license": "ISC",
   "main": "main.ts",
