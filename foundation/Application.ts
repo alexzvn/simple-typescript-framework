@@ -21,5 +21,18 @@ export const createApplication = () => {
   const app = express()
   const http = createServer(app)
 
+  app.use((req, res, next) => {
+    req.$app = $app
+    next()
+  })
+
   return $app = { express: app, logger, http, hook }
+}
+
+declare global {
+  namespace Express {
+    interface Request {
+      $app: Application
+    }
+  }
 }
