@@ -23,6 +23,7 @@ export const createApplication = (): Application => {
 
   app.use((req, res, next) => {
     req.$app = $app
+    emitter.emit('request', req)
     next()
   })
 
