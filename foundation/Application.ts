@@ -17,7 +17,7 @@ export interface Application {
 
 export let $app: Application
 
-export const createApplication = () => {
+export const createApplication = (): Application => {
   const app = express()
   const http = createServer(app)
 
@@ -26,13 +26,13 @@ export const createApplication = () => {
     next()
   })
 
-  return $app = { express: app, logger, http, hook }
+  return $app = { express: app, logger, http, hook } as any
 }
 
 declare global {
   namespace Express {
     interface Request {
-      $app: Application
+      $app: typeof $app
     }
   }
 }
