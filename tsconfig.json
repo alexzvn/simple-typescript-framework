@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./foundation/*"]
+    },
+
+    "baseUrl": "."
+  },
+
+  "include": [
+    "src/**/*",
+    "foundation/**/*",
+    "main.ts",
+    "global.d.ts"
+  ],
+}

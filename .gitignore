@@ -1,0 +1,7 @@
+error.log
+combined.log
+node_modules
+npm-debug.log
+package-lock.json
+.env
+yarn-error.log
