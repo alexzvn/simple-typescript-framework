@@ -2,9 +2,9 @@ import express, { Express } from 'express'
 import { IncomingMessage, Server, ServerResponse, createServer } from 'http'
 import { Logger } from 'winston'
 import { logger } from './utils/Logger'
-import { emitter, CycleEvents } from './utils/Cycle'
+import { emitter, CycleEvents, EventHandler } from './utils/Cycle'
 
-const hook = (event: CycleEvents, fn: () => unknown) => {
+const hook = (event: CycleEvents, fn: EventHandler<typeof event>) => {
   emitter.on(event, fn)
 }
 

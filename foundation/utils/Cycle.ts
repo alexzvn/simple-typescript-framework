@@ -10,7 +10,7 @@ export type CycleParams = {
 export type CycleEvents = keyof CycleParams
 
 type EventParams<T extends CycleEvents> = Parameters<CycleParams[T]>
-type EventHandler<T extends CycleEvents> = (...e: EventParams<T>) => unknown
+export type EventHandler<T extends CycleEvents> = CycleParams[T]
 type EmitWaiter = (event: CycleEvents, ...params: EventParams<typeof event>) => Promise<unknown>|unknown
 
 export interface CycleEmitter extends EventEmitter {
