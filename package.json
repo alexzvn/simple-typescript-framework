@@ -9,7 +9,7 @@
     "express",
     "nodejs"
   ],
-  "author": "",
+  "author": "alexzvn",
   "license": "ISC",
   "main": "main.ts",
   "scripts": {
