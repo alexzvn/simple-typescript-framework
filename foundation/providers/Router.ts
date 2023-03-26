@@ -10,18 +10,7 @@ const register = async (path: string) => {
   const [folder, file] = ['/' + (dirname(path) === '.' ? '' : dirname(path)), basename(path)]
   const filepath = join(controllerPath, path)
 
-  const { router: subroute, middleware, default: module } = await import(filepath)
-
-  if (file.startsWith('_middleware')) {
-    const middlewares = module ? (Array.isArray(module) ? module : [module]) : undefined
-    return middlewares && router.use(folder, ...middlewares)
-  }
-
-  const middlewares = middleware ? (Array.isArray(middleware) ? middleware : [middleware]) : undefined
-
-  if (subroute && middlewares) {
-    return router.use(folder, ...middlewares, subroute)
-  }
+  const { router: subroute } = await import(filepath)
 
   if (subroute) {
     return router.use(folder, subroute)
